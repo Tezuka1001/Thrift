@@ -8,6 +8,7 @@ import java.io.*;
 /**
  * @author lyh
  * @version 2019-10-10 21:33
+ * Thrift disk transport Demo
  */
 public class FileTransDemo {
 
