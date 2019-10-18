@@ -13,12 +13,11 @@ import java.nio.charset.StandardCharsets;
  */
 public class ServerTransDemo {
 
-    public static void main(String[] args)
-            throws TTransportException {
+    public static void main(String[] args) throws TTransportException {
         final String msg = "Hello Thrift!\n";
-        final String stop_cmd = "STOP";
-        final int buf_size = 1024 * 8;
-        byte[] buf = new byte[buf_size];
+        final String stopCmd = "STOP";
+        final int bufSize = 1024 * 8;
+        byte[] buf = new byte[bufSize];
 
         /**
          * 通过TServerSocket来创建一个server，监听在8585端口
@@ -33,11 +32,11 @@ public class ServerTransDemo {
         while (true) {
             TTransport trans = acceptor.accept();
             System.out.println("[Server] handling request");
-            trans.read(buf, 0, buf_size);
-            if (stop_cmd.regionMatches(0, new String(buf, 0, buf.length,
-                    StandardCharsets.UTF_8), 0, 4)) {
+            trans.read(buf, 0, bufSize);
+            if (stopCmd.regionMatches(0, new String(buf, 0, buf.length, StandardCharsets.UTF_8), 0, 4)) {
                 break;
             }
+            System.out.println(new String(buf));
             trans.write(msg.getBytes());
             trans.flush();
             trans.close();

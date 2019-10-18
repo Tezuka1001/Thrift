@@ -2,6 +2,7 @@ package org.lyh.transports;
 
 import org.apache.thrift.transport.TSimpleFileTransport;
 import org.apache.thrift.transport.TTransportException;
+import org.lyh.model.Trade;
 
 import java.io.*;
 
@@ -11,18 +12,6 @@ import java.io.*;
  * Thrift disk transport Demo
  */
 public class FileTransDemo {
-
-    static private class Trade implements Serializable {
-        String symbol;
-        double price;
-        int size;
-
-        private Trade(String symbol, double price, int size) {
-            this.symbol = symbol;
-            this.price = price;
-            this.size = size;
-        }
-    }
 
     public static void main(String[] args) throws TTransportException, IOException, ClassNotFoundException {
         Trade trade = new Trade("F", 13.10, 2500);
@@ -48,7 +37,7 @@ public class FileTransDemo {
         trade = (Trade) ois.readObject();
 
         System.out.println("Trade(" + iBytesRead + "): " +
-                trade.symbol + " " + trade.size + " @ " + trade.price);
+                trade.getSymbol() + " " + trade.getSize() + " @ " + trade.getPrice());
     }
 
 }

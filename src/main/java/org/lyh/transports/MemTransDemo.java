@@ -2,6 +2,7 @@ package org.lyh.transports;
 
 import org.apache.thrift.transport.TMemoryBuffer;
 import org.apache.thrift.transport.TTransportException;
+import org.lyh.model.Trade;
 
 import java.io.*;
 
@@ -11,18 +12,6 @@ import java.io.*;
  * Thrift memory transport Demo
  */
 public class MemTransDemo {
-
-    static private class Trade implements Serializable {
-        private String symbol;
-        private double price;
-        private int size;
-
-        private Trade(String symbol, double price, int size) {
-            this.symbol = symbol;
-            this.price = price;
-            this.size = size;
-        }
-    }
 
     public static void main(String[] args) throws IOException, TTransportException, ClassNotFoundException {
         Trade trade = new Trade("F", 13.10, 2500);
@@ -50,6 +39,6 @@ public class MemTransDemo {
         Trade tradeRead = (Trade) ois.readObject();
 
         System.out.println("Trade(" + bytes_read + "): " +
-                tradeRead.symbol + " " + tradeRead.size + " @ " + tradeRead.price);
+                tradeRead.getSymbol() + " " + tradeRead.getSize() + " @ " + tradeRead.getPrice());
     }
 }

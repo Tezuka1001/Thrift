@@ -13,7 +13,8 @@ public class SockClient {
     public static void main(String[] args) throws TTransportException {
         TTransport transport = new TSocket("localhost", 8585);
         transport.open();
-        transport.write("hello server".getBytes());
-        transport.write("STOP".getBytes());
+        transport.write("hello".getBytes());
+        transport.flush();
+        transport.close();
     }
 }
