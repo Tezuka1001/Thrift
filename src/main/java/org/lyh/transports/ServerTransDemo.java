@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * @author lyh
  * @version 2019-10-17 17:49
+ * @see org.lyh.client.SockClient 测试客户端
  */
 public class ServerTransDemo {
 

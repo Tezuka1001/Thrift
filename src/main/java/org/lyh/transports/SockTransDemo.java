@@ -25,20 +25,20 @@ public class SockTransDemo {
         /**
          * 读取网络返回结果，并打印
          */
-        read_trans(trans);
+        readTrans(trans);
         trans.close();
     }
 
-    private static void read_trans(TTransport trans) {
-        final int buf_size = 1024 * 8;
-        byte[] buf = new byte[buf_size];
+    private static void readTrans(TTransport trans) {
+        final int bufSize = 1024 * 8;
+        byte[] buf = new byte[bufSize];
         while (true) {
             try {
-                int bytes_read = trans.read(buf, 0, buf_size);
-                if (bytes_read <= 0 || buf_size < bytes_read) {
+                int bytesRead = trans.read(buf, 0, bufSize);
+                if (bytesRead <= 0 || bufSize < bytesRead) {
                     break;
                 }
-                System.out.print(new String(buf, 0, bytes_read, StandardCharsets.UTF_8));
+                System.out.print(new String(buf, 0, bytesRead, StandardCharsets.UTF_8));
             } catch (Throwable t) {
                 break;
             }

@@ -16,6 +16,9 @@ public class Trade implements Serializable {
 
     private int size;
 
+    public Trade() {
+    }
+
     public Trade(String symbol, double price, int size) {
         this.symbol = symbol;
         this.price = price;
