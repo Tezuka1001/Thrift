@@ -1,4 +1,6 @@
-package org.lyh.service;
+package org.lyh.service.impl;
+
+import org.lyh.service.HelloWorldService;
 
 public class HelloWorldServiceImpl implements HelloWorldService.Iface {
 

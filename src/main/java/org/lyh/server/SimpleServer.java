@@ -6,7 +6,7 @@ import org.apache.thrift.server.TServer;
 import org.apache.thrift.server.TSimpleServer;
 import org.apache.thrift.transport.TServerSocket;
 import org.lyh.service.HelloWorldService;
-import org.lyh.service.HelloWorldServiceImpl;
+import org.lyh.service.impl.HelloWorldServiceImpl;
 
 import java.net.ServerSocket;
 
