@@ -11,6 +11,6 @@ public class ComplexServiceImpl implements ComplextService.Iface {
 
     @Override
     public String getFullName(String firstName, String sceondName) throws TException {
-        return firstName + " : " + sceondName;
+        return firstName + " - " + sceondName;
     }
 }
